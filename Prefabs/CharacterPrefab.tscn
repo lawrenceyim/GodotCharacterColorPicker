@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://2q8eb3r155gw"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterCustomizer.cs" id="1_k7e2a"]
+[ext_resource type="Texture2D" uid="uid://dy43pxyutguvy" path="res://Assets/BasePerson.png" id="2_hou5c"]
+[ext_resource type="Texture2D" uid="uid://dj4s5goe5wj2t" path="res://Assets/BaseHead.png" id="3_t1nff"]
+[ext_resource type="Texture2D" uid="uid://mq40ixbawiby" path="res://Assets/BaseTorso.png" id="4_s2g7x"]
+[ext_resource type="Texture2D" uid="uid://bkvutxxidxreg" path="res://Assets/BasePants.png" id="5_08syt"]
+
+[node name="Node2D - Character Customizer" type="Node2D" node_paths=PackedStringArray("fullBody", "head", "torso", "legs")]
+scale = Vector2(6, 6)
+script = ExtResource("1_k7e2a")
+fullBody = NodePath("Sprite2D - Full Body")
+head = NodePath("Sprite2D - Head")
+torso = NodePath("Sprite2D - Torso")
+legs = NodePath("Sprite2D - Legs")
+
+[node name="Sprite2D - Full Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_hou5c")
+
+[node name="Sprite2D - Head" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -21)
+texture = ExtResource("3_t1nff")
+
+[node name="Sprite2D - Torso" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("4_s2g7x")
+
+[node name="Sprite2D - Legs" type="Sprite2D" parent="."]
+position = Vector2(0, 21)
+texture = ExtResource("5_08syt")

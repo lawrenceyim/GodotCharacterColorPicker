@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuh0uyicuxbp1"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterCustomizationMenu.cs" id="1_36w47"]
+[ext_resource type="PackedScene" uid="uid://2q8eb3r155gw" path="res://Prefabs/CharacterPrefab.tscn" id="2_paxq6"]
+[ext_resource type="Texture2D" uid="uid://doiuklv5f552q" path="res://Assets/Black.png" id="3_spuvh"]
+[ext_resource type="Texture2D" uid="uid://b0rfyl1unt5ey" path="res://Assets/Blue.png" id="4_ox5ob"]
+[ext_resource type="Texture2D" uid="uid://c12yg2vgu7smw" path="res://Assets/Red.png" id="5_kcevq"]
+[ext_resource type="Texture2D" uid="uid://bin4xeirem4nd" path="res://Assets/FullBodyButton.png" id="6_4q3nk"]
+[ext_resource type="Texture2D" uid="uid://coua4ionld6wf" path="res://Assets/LegsButton.png" id="7_m86o1"]
+
+[node name="Node2D - Character Customization Screen" type="Node2D" node_paths=PackedStringArray("characterCustomizer")]
+script = ExtResource("1_36w47")
+characterCustomizer = NodePath("Node2D - Customizer")
+
+[node name="Node2D - Customizer" parent="." instance=ExtResource("2_paxq6")]
+position = Vector2(960, 540)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1120.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel - Color Palette" type="Panel" parent="Control"]
+layout_mode = 0
+offset_top = 600.0
+offset_right = 800.0
+offset_bottom = 1000.0
+
+[node name="Button - Black" type="Button" parent="Control/Panel - Color Palette"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 118.0
+offset_bottom = 118.0
+icon = ExtResource("3_spuvh")
+
+[node name="Button - Blue" type="Button" parent="Control/Panel - Color Palette"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 10.0
+offset_right = 248.0
+offset_bottom = 118.0
+icon = ExtResource("4_ox5ob")
+
+[node name="Button - Red" type="Button" parent="Control/Panel - Color Palette"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 10.0
+offset_right = 378.0
+offset_bottom = 118.0
+icon = ExtResource("5_kcevq")
+
+[node name="Panel - Body Part Picker" type="Panel" parent="Control"]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 800.0
+offset_bottom = 550.0
+
+[node name="Button - Full Body" type="Button" parent="Control/Panel - Body Part Picker"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = 66.0
+offset_bottom = 93.0
+scale = Vector2(5, 5)
+icon = ExtResource("6_4q3nk")
+
+[node name="Button - Legs" type="Button" parent="Control/Panel - Body Part Picker"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 233.0
+offset_right = 290.0
+offset_bottom = 262.0
+scale = Vector2(5, 5)
+icon = ExtResource("7_m86o1")
+
+[connection signal="pressed" from="Control/Panel - Color Palette/Button - Black" to="." method="_on_button__black_pressed"]
+[connection signal="pressed" from="Control/Panel - Color Palette/Button - Blue" to="." method="_on_button__blue_pressed"]
+[connection signal="pressed" from="Control/Panel - Color Palette/Button - Red" to="." method="_on_button__red_pressed"]
+[connection signal="pressed" from="Control/Panel - Body Part Picker/Button - Full Body" to="." method="_on_button__full_body_pressed"]
+[connection signal="pressed" from="Control/Panel - Body Part Picker/Button - Legs" to="." method="_on_button__legs_pressed"]
